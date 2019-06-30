@@ -8,12 +8,12 @@
     <script src="https://cdn.rawgit.com/brython-dev/brython/3.6.2/www/src/brython_stdlib.js" ></script>
     -->
     
-    <!--本地模組
+    <!--本地模組 (棄用)
     <script src="lib\brython.js"></script>
     <script src="lib\brython_stdlib.js"></script>
     --!>
     
-    <!--本地模組 brython_modules.js--!>
+    <!--本地已優化模組 brython_modules.js--!>
     <script>
 __BRYTHON__.VFS_timestamp = 1558450272419
 __BRYTHON__.use_VFS = true
@@ -308,6 +308,8 @@ def render_ahk_script():
             elif msg_type=="目前視窗名稱":
             	com_str+="WinGetActiveTitle,WinTitle\n"
                 com_str+="ToolTip,%WinTitle%,posX,posY\n"
+            elif msg_type=="今天日期":
+            	com_str+="ToolTip,%A_YYYY%/%A_MM%/%A_DD%,posX,posY\n"
             else:
                 com_str+=f"ToolTip,{msg_str},posX,posY\n"
             com_str+=f"Sleep {lifetime}\n"
