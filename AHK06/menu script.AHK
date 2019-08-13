@@ -1,17 +1,31 @@
-﻿#if StringInActiveTitle("Google 文件")
-^T:: Send !+5
-#if
+﻿^+Y::
+Loop,1{
+    CoordMode, Menu, Screen
+    CoordMode, Mouse, Screen
 
+    Menu,MyMenu, Add
+    Menu,MyMenu, Add, Youtube,
+    Menu,MyMenu, Add, Yahoo!奇摩股市,
 
-;偵測目前視窗標題是否含有某一段文字
-StringInActiveTitle(String){
-    WinGetActiveTitle,WinTitle
-    IfInString, WinTitle, %String%
-    {
-        return True
-    }
-    else
-    {
-        return False
+    Show()
+
+    Reload
+    WinKill, menu launcher -quits right after .ahk, WinText, ET
+    return
+
+    Youtube:
+    Run https://www.youtube.com
+    return
+
+    Yahoo!奇摩股市:
+    Run https://tw.stock.yahoo.com
+    return
+
+    Show(){
+        static MX,MY
+        if (!MX && !MY)
+        MouseGetPos, MX, MY
+        Menu, MyMenu, Show, % MX, % MY
     }
 }
+return
