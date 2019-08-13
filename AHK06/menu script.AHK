@@ -3,7 +3,6 @@ Loop,1{
     CoordMode, Menu, Screen
     CoordMode, Mouse, Screen
 
-    Menu,MyMenu, Add
     Menu,MyMenu, Add, Youtube,
     Menu,MyMenu, Add, Yahoo!奇摩股市,
 
